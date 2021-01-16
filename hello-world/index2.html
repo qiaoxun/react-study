@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style type="text/css">
+      .title {
+        background-color: #32f091;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      const id = "js_id"
+      const content = "How Are You?"
+      const VDOM = (
+        <div>
+          <h2 id={id}>
+            <span className="title" style={{color: 'red', fontSize: '60px'}}>{content}</span>
+          </h2>
+          <h2 id={id}>
+            <span className="title" style={{color: 'red', fontSize: '60px'}}>{content}</span>
+          </h2>
+        </div>
+      )
+      ReactDOM.render(VDOM, document.getElementById("test"))
+    </script>
+  </body>
+</html>

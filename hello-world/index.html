@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      const VDOM = <h1><span>This is a Hello World Example</span></h1>
+      console.log(VDOM)
+      
+      ReactDOM.render(VDOM, document.getElementById("test"))
+    </script>
+  </body>
+</html>
