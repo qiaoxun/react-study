@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <style type="text/css">
+      .title {
+        background-color: #32f091;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      class Person extends React.Component {
+        render() {
+          const {name, age, sex} = this.props
+          return (
+            <ul>
+              <li>Name: {name}</li>
+              <li>Age: {age}</li>
+              <li>Sex: {sex}</li>
+            </ul>
+          )
+        }
+        changeWeather = () => {
+          let isHot = this.state.isHot
+          this.setState({isHot:!isHot})
+        }
+      }
+
+      ReactDOM.render(<Person name="Joey" age="28" sex="Male" />, document.getElementById("test"))
+    </script>
+  </body>
+</html>

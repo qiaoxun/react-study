@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <style type="text/css">
+      .title {
+        background-color: #32f091;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      function MyComponent() {
+        return <h1>This is a Components</h1>
+      }
+      ReactDOM.render(<MyComponent/>, document.getElementById("test"))
+    </script>
+  </body>
+</html>
