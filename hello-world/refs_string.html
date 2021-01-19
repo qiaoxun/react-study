@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <div id="test1"></div>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      class Demo extends React.Component {
+        render() {
+          return (
+            <div>
+                <input ref="input1" type="text" placeholder="Click to show alert message" />
+                <button onClick={this.showData}>Button</button>
+                <input ref="input2" onBlur={this.showData1} type="text" placeholder="Click to show alert message" />
+            </div>
+          )
+        }
+        
+        showData = () => {
+            const {input1} = this.refs
+            console.log(input1.value)
+            input1.value = "Button clicked"
+        }
+        
+        showData1 = () => {
+            const {input2} = this.refs
+            console.log(input2.value)
+            input2.value = "Value Changed"
+        }
+      }
+
+      ReactDOM.render(<Demo />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>

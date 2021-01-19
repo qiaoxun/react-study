@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <style type="text/css">
+      .title {
+        background-color: #32f091;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+    <div id="test1"></div>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script src="js/prop-types.js"></script>
+    <script type="text/babel">
+
+      function Person(props) {
+        const {name, age, sex} = props
+        return (
+          <ul>
+            <li>Name: {name}</li>
+            <li>Age: {age}</li>
+            <li>Sex: {sex}</li>
+          </ul>
+        )
+      }
+
+
+      const p = {name: 'Tom', age: 11, sex: 'Unknown'}
+
+      Person.propTypes = {
+        name: PropTypes.string,
+        age: PropTypes.number,
+        sex: PropTypes.string
+      }
+      
+      ReactDOM.render(<Person {...p} />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>

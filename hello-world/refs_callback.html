@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <div id="test1"></div>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      class Demo extends React.Component {
+
+        state = {isHot: true}
+
+        // render() {
+        //   return (
+        //     <div>
+        //       Today's weather is very {this.state.isHot ? 'Hot' : 'Cold'} !
+        //       <input ref={(c) => {this.input1=c;console.log('This will executed twice', c)}} type="text" placeholder="Click to show alert message" />
+        //       <button onClick={this.showData}>Button</button>
+        //       <button onClick={this.changeWeather}>Click to change state</button>
+        //     </div>
+        //   )
+        // }
+
+        
+        render() {
+          return (
+            <div>
+              Today's weather is very {this.state.isHot ? 'Hot' : 'Cold'} !
+              <input ref={this.saveInput} type="text" placeholder="Click to show alert message" />
+              <button onClick={this.showData}>Button</button>
+              <button onClick={this.changeWeather}>Click to change state</button>
+            </div>
+          )
+        }
+
+        saveInput = (c) => {
+          this.input1 = c
+          console.log(c)
+        }
+        
+        showData = () => {
+          console.log(this)
+          const {input1} = this
+          console.log(input1.value)
+          input1.value = "Button clicked"
+        }
+
+        changeWeather = () => {
+          const isHot = this.state.isHot
+          this.setState({isHot:!isHot})
+        }
+        
+      }
+
+      ReactDOM.render(<Demo />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>
