@@ -16,6 +16,19 @@
     <script src="js/prop-types.js"></script>
     <script type="text/babel">
       class Person extends React.Component {
+
+        static propTypes = {
+          name: PropTypes.string.isRequired,
+          age: PropTypes.number,
+          sex: PropTypes.string,
+          speak: PropTypes.func
+        }
+
+        static defaultProps = {
+          sex: 'bisexual',
+          age: 18
+        }
+
         render() {
           const {name, age, sex, speak} = this.props
           speak()
@@ -34,18 +47,6 @@
       }
 
       const p = {name: 'Tom', age1: 28, s1ex: 'Unknown'}
-
-      Person.propTypes = {
-        name: PropTypes.string.isRequired,
-        age: PropTypes.number,
-        sex: PropTypes.string,
-        speak: PropTypes.func
-      }
-
-      Person.defaultProps = {
-        sex: 'bisexual',
-        age: 18
-      }
 
       function speak() {
         console.log('Keep Talking')

@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <style type="text/css">
+      .title {
+        background-color: #32f091;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+    <div id="test1"></div>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script src="js/prop-types.js"></script>
+    <script type="text/babel">
+      class Clock extends React.Component {
+
+        constructor(props) {
+          super()
+          this.state = {date: new Date()}
+        }
+
+        componentDidMount() {
+          this.timerID = setInterval(this.tick, 1000)
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.timerID);
+        }
+
+        tick = () => {
+          this.setState({date: new Date()})
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>Hello World</h1>
+              <h2>It is: {this.state.date.toLocaleTimeString()}</h2>
+            </div>
+          )
+        }
+      }
+
+      
+      ReactDOM.render(<Clock />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>
