@@ -22,12 +22,18 @@
           this.state = {date: new Date()}
         }
 
-        componentWillMount() {
-          console.log('componentWillMount')
+        static getDerivedStateFromProps(props, state) {
+          console.log('getDerivedStateFromProps')
+          return props
+        }
+
+        getSnapshotBeforeUpdate() {
+          console.log('getSnapshotBeforeUpdate')
+          return 'aaa'
         }
 
         componentDidMount() {
-          this.timerID = setInterval(this.tick, 1000)
+          this.timerID = setInterval(this.tick, 5000)
         }
 
         componentWillUnmount() {
@@ -39,12 +45,8 @@
           return true
         }
 
-        UNSAFE_componentWillUpdate() {
-          console.log('componentWillUpdate')
-        }
-
-        componentDidUpdate() {
-          console.log('componentDidUpdate')
+        componentDidUpdate(preProps, preState, snapshotValue) {
+          console.log('componentDidUpdate', preProps, preState, snapshotValue)
         }
 
         tick = () => {

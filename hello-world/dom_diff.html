@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <style type="text/css">
+      .title {
+        background-color: #32f091;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+    <div id="test1"></div>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script src="js/prop-types.js"></script>
+    <script type="text/babel">
+      class DomDiff extends React.Component {
+
+        constructor(props) {
+          super()
+          this.state = {person: []}
+        }
+
+        componentDidMount() {
+          const person = [
+            {name: 'Joey', age: 29, id:1},
+            {name: 'Tom', age: 29, id:2},
+          ]
+          this.setState({person: person})
+        }
+
+        render() {
+          return (
+            <div>
+              <button onClick={this.addPerson}>Add</button>
+              <br />
+              ===================== 有问题的部分 =====================
+              <ul>
+                {
+                  this.state.person.map((p, index) => {
+                    return <li key={index}>Name: {p.name}, Age: {p.age}<input type="text" /></li> 
+                  })
+                }
+              </ul>
+              ===================== 没有问题的部分 =====================
+              <ul>
+                {
+                  this.state.person.map(p => {
+                    return <li key={p.id}>Name: {p.name}, Age: {p.age}<input type="text" /></li> 
+                  })
+                }
+              </ul>
+            </div>
+          )
+        }
+
+        addPerson = () => {
+          const { person } = this.state
+          const newPerson = {name: 'George' + person.length, age: 29, id: person.length + 1}
+          this.setState({person: [newPerson, ...person]})
+          console.log('person', person)
+        }
+
+      }
+
+      ReactDOM.render(<DomDiff />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>
