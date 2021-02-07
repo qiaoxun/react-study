@@ -53,5 +53,13 @@
 
 .item {
   width: 400px;
-  margin: 10px 0;
+  height: 35px;
+  margin: 2px 0;
+  border: 1px solid #ccc !important;
+  border-radius: 4px;
+}
+
+.footer {
+  width: 400px;
+  margin: 2px 0;
 }
