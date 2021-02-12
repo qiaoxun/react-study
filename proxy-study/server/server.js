@@ -2,6 +2,7 @@ http = require('http')
 
 http.createServer(function (req, res) {
   if (req.url === '/cars') {
+    console.log(req.headers.host)
     res.writeHead(200, { 'Content-Type': 'application/json' })
     const cars = [
       {brand: 'Mazida', name: 'Mazida3'},

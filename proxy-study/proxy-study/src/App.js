@@ -10,7 +10,7 @@ export default class App extends Component {
   }
 
   getAllCars = () => {
-    axios.get('/cars').then(res => {
+    axios.get('/api1/cars').then(res => {
       this.setState({cars: res.data})
     })
   }
