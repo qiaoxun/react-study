@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
+import Item from '../Item'
+import './content.css'
 
 export default class index extends Component {
-
-  search = () => {
-    console.log(this.keywordEle.value)
-  }
-
   render() {
     return (
-      <div>
-        <div className="search">
-          <p>Search By Github Users</p>
-          <input ref={c => this.keywordEle = c} type="text" placeholder="Input name to search" />
-          <button onClick={this.search}>Search</button>
-        </div>
+      <div className="content">
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
       </div>
     )
   }

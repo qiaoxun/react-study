@@ -1,0 +1,9 @@
+.item {
+  width: 100px;
+  height: 70px;
+  border: 1px solid red;
+  background: url(http://p4.itc.cn/images01/20201223/8340a492eaff4a608ec1580b25367025.png);
+  background-position: 10% 40%; 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
