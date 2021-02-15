@@ -6,14 +6,11 @@ export default class index extends Component {
   render() {
     return (
       <div className="content">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {
+          this.props.cars.map((car, index) => {
+            return <Item name={car.name} key={index} />
+          })
+        }
       </div>
     )
   }

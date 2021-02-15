@@ -5,7 +5,7 @@ export default class index extends Component {
   render() {
     return (
       <div className="item">
-        Car
+        <font className="car">{this.props.name}</font>
       </div>
     )
   }
