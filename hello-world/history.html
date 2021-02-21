@@ -1,0 +1,37 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <a href="http://bing.com" onclick="return push('/test1')"">pust test1</a>
+    <button onclick="push('/test2')">pust test2</button>
+    <button onclick="replace('/test3')">replace test3</button>
+    <button onclick="back()">back</button>
+    <button onclick="forward()">forward</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/history/4.7.2/history.js"></script>
+    <script type="text/javascript">
+      let history = History.createBrowserHistory()
+      
+      function push(path) {
+        history.push(path)
+        return false
+      }
+      
+      function replace(path) {
+        history.replace(path)
+      }
+            
+      function back(path) {
+        history.goBack(path)
+      }
+            
+      function forward() {
+        history.goForward()
+      }
+
+      history.listen((location) => {
+        console.log('Location changed ', location)
+      })
+      console.log(history)
+    </script>
+  </body>
+</html>
