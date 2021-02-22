@@ -3,13 +3,22 @@
   </head>
   <body>
     <a href="http://bing.com" onclick="return push('/test1')"">pust test1</a>
+    <br/>
+    <br/>
     <button onclick="push('/test2')">pust test2</button>
+    <br/>
+    <br/>
     <button onclick="replace('/test3')">replace test3</button>
+    <br/>
+    <br/>
     <button onclick="back()">back</button>
+    <br/>
+    <br/>
     <button onclick="forward()">forward</button>
     <script src="https://cdn.bootcdn.net/ajax/libs/history/4.7.2/history.js"></script>
     <script type="text/javascript">
-      let history = History.createBrowserHistory()
+      // let history = History.createBrowserHistory()
+      let history = History.createHashHistory()
       
       function push(path) {
         history.push(path)
