@@ -3,13 +3,13 @@ import './bootstrap.min.css'
 import React,{Component} from 'react'
 import About from './components/About'
 import Home from './components/Home'
-import { BrowserRouter, NavLink, Route } from "react-router-dom";
+import Test from './components/Test'
+import { Switch, NavLink, Route, Redirect } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
         <div>
           <ul className="nav nav-pills mb-3">
             <li className="nav-item">
@@ -18,19 +18,19 @@ class App extends Component {
             </li>
             <li className="nav-item">
               {/* <Link className="nav-link" to="/home">Home</Link> */}
-              <NavLink className="nav-link" to="/home">Home</NavLink>
+              <NavLink className="nav-link" to="/home/a/b">Home</NavLink>
             </li>
           </ul>
         </div>
         <div>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route path="/home" exact={true} component={Home} />
+            <Route path="/home" component={Test} />
+            <Redirect to="/about" />
+
+          </Switch>
         </div>
-        </BrowserRouter>
       </div>
     );
   }
