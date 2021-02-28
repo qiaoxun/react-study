@@ -1,0 +1,19 @@
+import React, { Component } from 'react'
+
+const messages = [
+  { id: '01', content: 'To help fit your needs, this works with <ul>-based markup, as shown above, or with any arbitrary “roll your own” markup. ' },
+  { id: '02', content: 'Note that if you’re using <nav>, you shouldn’t add role="tablist" directly to it, as this would override the element’s native role as a navigation landmark.' },
+  { id: '03', content: 'Instead, switch to an alternative element (in the example below, a simple <div>) and wrap the <nav> around it.' },
+]
+
+export default class index extends Component {
+  render() {
+    const id = this.props.match.params.id
+    const msg = messages.find(ele => ele.id === id)
+    return (
+      <div>
+        {msg.content}
+      </div>
+    )
+  }
+}

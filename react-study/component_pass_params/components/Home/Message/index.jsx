@@ -12,13 +12,12 @@ export default class index extends Component {
         {
           messageList.map(message => {
             return (
-              // <li key={message.id}><NavLink className="nav-link" to={'/home/message?id=' + message.id}>{message.title}</NavLink></li>
-              <li key={message.id}><NavLink className="nav-link" to={{ path: '/home/message', state: {id: message.id}}}>{message.title}</NavLink></li>
+              <li key={message.id}><NavLink className="nav-link" to={'/home/message/' + message.id}>{message.title}</NavLink></li>
             )
           })
         }
         </ul>
-        <Route path="/home/message" component={Detail} />
+        <Route path="/home/message/:id" component={Detail} />
       </div>
     )
   }
