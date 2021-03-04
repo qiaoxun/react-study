@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import qs from 'querystring'
 
 const messages = [
   { id: '01', content: 'To help fit your needs, this works with <ul>-based markup, as shown above, or with any arbitrary “roll your own” markup. ' },
