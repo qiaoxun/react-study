@@ -11,10 +11,12 @@ export default class index extends Component {
     this.setState({ count: this.state.count - Number(this.selectNumber.value) })
   }
   incrementIfOdd = () => {
-
+    if (this.state.count % 2 === 1) {
+      this.increment()
+    }
   }
   incrementAsync = () => {
-
+    setTimeout(this.increment, 500)
   }
 
   render() {
