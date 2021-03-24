@@ -5,11 +5,11 @@ export default class index extends Component {
 
   // state = {count: 0}
 
-  componentDidMount() {
-    store.subscribe(() => {
-      this.setState({})
-    })
-  }
+  // componentDidMount() {
+  //   store.subscribe(() => {
+  //     this.setState({})
+  //   })
+  // }
 
   increment = () => {
     store.dispatch({type: 'increment', data: Number(this.selectNumber.value)})
